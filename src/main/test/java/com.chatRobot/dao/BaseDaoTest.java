@@ -25,6 +25,6 @@ public class BaseDaoTest {
         public void testSelectUser() throws Exception{
             long id = 1;
            BaseEntity baseEntity =  baseDao.selectUser(id);
-           System.out.println("账号："+baseEntity.getUsername()+"邮箱："+baseEntity.getEmail());
+           System.out.println("userName："+baseEntity.getUsername()+"邮箱："+baseEntity.getEmail());
         }
 }
