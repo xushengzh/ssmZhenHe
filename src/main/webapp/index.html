@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>测试页</title>
 </head>
 <script>
     function selectUser() {
@@ -12,7 +12,7 @@
                 document.getElementById("test").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("POST", "user/showUser.do", true);
+        xmlhttp.open("POST", "user/showUser", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send("id=1");
     }
