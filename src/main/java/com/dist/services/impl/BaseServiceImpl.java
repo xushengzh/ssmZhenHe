@@ -2,6 +2,7 @@ package com.dist.services.impl;
 
 import com.dist.dao.BaseDao;
 import com.dist.entity.BaseEntity;
+import com.dist.entity.UserInfo;
 import com.dist.services.BaseService;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,11 @@ public class BaseServiceImpl implements BaseService {
     @Override
     public BaseEntity selectUser(long id) {
         return baseDao.selectUser(id);
+    }
+
+    @Override
+    public int userRegister(UserInfo userInfo) {
+        int result = baseDao.userRegister(userInfo);
+        return result;
     }
 }
