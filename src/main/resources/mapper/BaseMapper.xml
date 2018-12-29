@@ -8,4 +8,11 @@
         SELECT * FROM user WHERE id = #{id}
     </select>
 
+    <insert id="userRegister" useGeneratedKeys="true" keyProperty="id" parameterType="UserInfo">
+        INSERT INTO user_info
+        (`userId`, `belong_orgn`, `user_name`, `workno`, `phone`, `role_id`, `status`, `password`, `create_time`)
+        VALUES
+        (#{userId},#{belongOrgn},#{userName}, #{workNo}, #{phone}, #{roleId}, #{status}, #{password},NOW());
+    </insert>
+
 </mapper>

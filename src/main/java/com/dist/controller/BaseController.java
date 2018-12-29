@@ -1,19 +1,20 @@
 package com.dist.controller;
 
 import com.dist.entity.BaseEntity;
+import com.dist.entity.UserInfo;
 import com.dist.services.BaseService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.deploy.net.HttpResponse;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2018/12/24.
@@ -39,4 +40,34 @@ public class BaseController {
 
 
        }
+
+    /**
+     * 用户注册
+     */
+    @RequestMapping("/register")
+    @ResponseBody
+    public Map<String,Object> userRegister(String userAccount, String userPassword){
+           Map<String,Object> map = new HashMap<>();
+           UserInfo userInfo = new UserInfo();
+           userInfo.setUserName(userAccount);
+           userInfo.setPassword(userPassword);
+           int result = baseService.userRegister(userInfo);
+           if (result >0 ){
+               map.put("info","0");
+               return map;
+           }
+           map.put("info","1");
+           return map;
+    }
+
+    /**
+     * 跳转注册界面
+     */
+    @RequestMapping("/registerPage")
+    public ModelAndView toRegisterPage(){
+        ModelAndView mv = new ModelAndView();
+
+        mv.setViewName("/register");
+        return mv;
+    }
 }

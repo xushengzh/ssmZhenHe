@@ -38,6 +38,14 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <!-- 自己描述jstl配置文件-->
+  <jsp-config>
+      <taglib>
+        <taglib-uri>http://www.codecoord.com</taglib-uri>
+        <taglib-location>/WEB-INF/jstl-tld/c.tld</taglib-location>
+      </taglib>
+  </jsp-config>
+
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
