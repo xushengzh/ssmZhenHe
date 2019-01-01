@@ -74,6 +74,7 @@ public class BaseController {
     /**
      * idea Mac测试
      */
+
     public String myIdea(){
 
         return "Hello word!";
