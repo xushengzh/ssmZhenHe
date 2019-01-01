@@ -70,4 +70,14 @@ public class BaseController {
         mv.setViewName("/register");
         return mv;
     }
+
+    /**
+     * idea Mac测试
+     */
+
+    public String myIdea(){
+
+        return "Hello word!";
+    }
+
 }
