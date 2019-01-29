@@ -28,4 +28,12 @@ public class BaseServiceImpl implements BaseService {
         int result = baseDao.userRegister(userInfo);
         return result;
     }
+
+    @Override
+    public UserInfo userLogin(String userName, String password) {
+        UserInfo userInfo = baseDao.userLogin(userName, password);
+        return userInfo;
+    }
+
+
 }

@@ -31,41 +31,7 @@
 //注册
 function doRegister() {
 
-                var account = $("#user_account").val();
-                var password = $("#user_password").val();
-                var againPass = $("#again_password").val();
 
-                if (account == ''){
-                alert("请输入注册账号");
-                return;
-                }
-                if (password == ''){
-                alert("请输入注册密码");
-                return;
-                }
-                if (againPass == ''){
-                alert("请输入确认密码");
-                return;
-                }
-                if (password != againPass){
-                alert("两次输入密码不一致！");
-                return;
-                }
-         $.ajax({
-            url:"<c:url value="/user/register"/>",
-                data:{'userAccount':account,'userPassword':password},
-                type:"post",
-                dataType:"json",
-                async:false,
-                timeout:50000,
-                success:function(result) {
-                if (result.info == '0'){
-                alert("注册成功！")
-                }else {
-                alert("注册失败，请重新注册！")
-                }
-                }
-                });
                 }
 
 

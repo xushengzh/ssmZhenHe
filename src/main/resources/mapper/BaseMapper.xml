@@ -4,15 +4,34 @@
 <!-- 设置为IUserDao接口方法提供sql语句配置 -->
 <mapper namespace="com.dist.dao.BaseDao">
 
+    <resultMap id="UserInfoMap" type="com.dist.entity.UserInfo">
+        <result column="id" property="id"></result>
+        <result column="userId" property="userId"></result>
+        <result column="belong_orgn" property="belongOrgn"></result>
+        <result column="user_name" property="userName"></result>
+        <result column="workno" property="workNo"></result>
+        <result column="phone" property="phone"></result>
+        <result column="role_id" property="roleId"></result>
+        <result column="status" property="status"></result>
+        <result column="password" property="password"></result>
+        <result column="create_time" property="createTime"></result>
+
+    </resultMap>
+
     <select id="selectUser" resultType="BaseEntity" parameterType="long">
         SELECT * FROM user WHERE id = #{id}
     </select>
 
+    <!--用户注册-->
     <insert id="userRegister" useGeneratedKeys="true" keyProperty="id" parameterType="UserInfo">
         INSERT INTO user_info
         (`userId`, `belong_orgn`, `user_name`, `workno`, `phone`, `role_id`, `status`, `password`, `create_time`)
         VALUES
         (#{userId},#{belongOrgn},#{userName}, #{workNo}, #{phone}, #{roleId}, #{status}, #{password},NOW());
     </insert>
-
+    <!--用户登录-->
+    <select id="userLogin" resultMap="UserInfoMap">
+        SELECT * FROM user_info u WHERE u.user_name = #{userName}
+        AND u.password = #{password}
+    </select>
 </mapper>
