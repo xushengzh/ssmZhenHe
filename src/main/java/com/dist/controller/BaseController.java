@@ -31,7 +31,7 @@ public class BaseController {
        public void selectUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
                    request.setCharacterEncoding("utf-8");
                    response.setCharacterEncoding("utf-8");
-                  long userId =   Long.parseLong(request.getParameter("id"));
+                  long userId =  Long.parseLong(request.getParameter("id"));
                   BaseEntity baseEntity = baseService.selectUser(userId);
                   ObjectMapper objectMapper = new ObjectMapper();
                   response.getWriter().write(objectMapper.writeValueAsString(baseEntity));
@@ -72,23 +72,12 @@ public class BaseController {
     }
 
     /**
-     * 用户登录
+     * idea Mac测试
      */
-    @RequestMapping("/doLogin")
-    @ResponseBody
-    public Map<String,Object> userDoLogin(String userName,String password){
-        Map<String,Object> map = new HashMap<>();
-        UserInfo userInfo = baseService.userLogin(userName, password);
-        if (userInfo != null){
-            map.put("info","0");
-            return  map;
-        }
-        map.put("info","1");
-        return  map;
 
+    public String myIdea(){
+
+        return "Hello word!";
     }
 
-    /**
-     * 修改用户名和密码操作
-     */
 }
