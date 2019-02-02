@@ -6,6 +6,7 @@ import com.dist.services.BaseService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,6 +43,31 @@ public class BaseController {
        }
 
     /**
+     * 用户登录
+     */
+    @RequestMapping("/doLogin")
+    @ResponseBody
+    public Map<String,Object> userLogin(String userName,String password){
+        Map<String,Object> map = new HashMap<>();
+        UserInfo userInfo = baseService.userLogin(userName, password);
+        if (userInfo != null){
+            map.put("info","0");
+            return map;
+        }
+        map.put("info","1");
+        return  map;
+    }
+    /**
+     * 跳转首页界面
+     */
+    @RequestMapping("/loginPage")
+    public ModelAndView loginPage(@RequestParam(value = "user_account") String userName){
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("userName",userName);
+        mv.setViewName("/index");
+        return  mv;
+    }
+    /**
      * 用户注册
      */
     @RequestMapping("/register")
@@ -67,7 +93,7 @@ public class BaseController {
     public ModelAndView toRegisterPage(){
         ModelAndView mv = new ModelAndView();
 
-        mv.setViewName("/register");
+        mv.setViewName("index");
         return mv;
     }
 

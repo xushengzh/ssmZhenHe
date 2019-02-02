@@ -96,7 +96,7 @@
         <span style="font-weight: bold;color: #ffffff;font-size: 25px;font-family: 楷体">旭日东升在线教育平台</span>
     </div>
     <div class="login_form_div" style="margin-top: 25px">
-    <form id="login_form" style="text-align: center">
+    <form id="login_form" style="text-align: center" action="${pageContext.request.contextPath}/user/loginPage">
         <div class="form-group">
             <span class="login_span"></span><br>
             <i class="fa fa-user fa-lg"></i>
@@ -192,9 +192,9 @@
             timeout: 50000,
             success: function (result) {
                 if (result.info == '0') {
-                    alert("登录成功！");
+                    $("#login_form").submit();
                 } else {
-                    alert("登录失败，请重新登录！");
+                    alert("登录失败，账号或密码错误！");
                 }
             }
         });
