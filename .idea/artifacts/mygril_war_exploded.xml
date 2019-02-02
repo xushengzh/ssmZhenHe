@@ -1,20 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="mygril:war exploded">
-    <output-path>$PROJECT_DIR$/target/ChatRobot</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <exploded>true</exploded>
-        <module>mygril</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
+    <output-path>$PROJECT_DIR$/out/artifacts/mygril_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="mygril" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: javax:javaee-api:7.0" />
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.0" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Maven: junit:junit:4.12" />
@@ -44,9 +36,6 @@
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5" />
         </element>
-      </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/ChatRobot/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="mygril/web/Web" />
     </root>
